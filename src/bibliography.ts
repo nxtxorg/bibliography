@@ -4,7 +4,7 @@
     Author: Malte Rosenbjerg
     License: MIT */
 
-import {NodeType, Package, INxtx} from '../nxtx';
+import {NodeType, Package, INxtx} from '../nxtx-interface';
 declare const nxtx: INxtx;
 
 const entries = {};
@@ -64,7 +64,7 @@ const pkg : Package = {
             return nxtx.html('span', null, '[', ...cites, ']');
         },
         // @ts-ignore
-        'bib-print': async () => {
+        'bib:print': async () => {
             const mapped = cited
                 .map(e => entries[e])
                 .map((entryFields, number) => nxtx.html('div', { id: `---${cited[number]}`, class: 'bib bib-entry'},
@@ -81,7 +81,7 @@ const pkg : Package = {
         }
     },
     preprocessors: {
-        'bib-add': (key, entry) => {
+        'bib:add': (key, entry) => {
             if (!entry || entry.type !== NodeType.Dictionary) return console.error('bib-add only must have a dictionary as second argument');
             entries[key.value] = entry.value;
         },
