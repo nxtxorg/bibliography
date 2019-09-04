@@ -82,7 +82,7 @@ const pkg : Package = {
     },
     preprocessors: {
         'bib:add': (key, entry) => {
-            if (!entry || entry.type !== NodeType.Dictionary) return console.error('bib-add only must have a dictionary as second argument');
+            if (!entry || entry.type !== NodeType.Dictionary) return console.error('bib:add only must have a dictionary as second argument');
             entries[key.value] = entry.value;
         },
     },

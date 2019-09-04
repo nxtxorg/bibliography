@@ -146,7 +146,7 @@ var bibliography = (function () {
         preprocessors: {
             'bib:add': function (key, entry) {
                 if (!entry || entry.type !== NodeType.Dictionary)
-                    return console.error('bib-add only must have a dictionary as second argument');
+                    return console.error('bib:add only must have a dictionary as second argument');
                 entries[key.value] = entry.value;
             },
         },
